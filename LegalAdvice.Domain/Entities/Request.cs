@@ -2,7 +2,7 @@
 
 namespace LegalAdvice.Domain.Entities
 {
-    public class Reuest : AuditableEntity
+    public class Request : AuditableEntity
     {
     }
 }
