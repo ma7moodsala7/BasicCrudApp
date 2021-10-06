@@ -9,14 +9,14 @@ namespace LegalAdvice.Application.Features.Request.Queries.GetRequestDetails
 {
     public class GetRequestDetailsQueryHandler : IRequestHandler<GetRequestDetailsQuery, RequestDetailsVm>
     {
-        private readonly IAsyncRepository<Domain.Entities.Request> _requestRepository;
-        private readonly IAsyncRepository<Client> _ClientRepository;
+        private readonly IRequestRepository _requestRepository;
+        private readonly IClientRepository _ClientRepository;
         private readonly IMapper _mapper;
 
         public GetRequestDetailsQueryHandler(
-            IMapper mapper, 
-            IAsyncRepository<Domain.Entities.Request> requestRepository, 
-            IAsyncRepository<Client> clientRepository)
+            IMapper mapper,
+            IRequestRepository requestRepository,
+            IClientRepository clientRepository)
         {
             _mapper = mapper;
             _requestRepository = requestRepository;
@@ -25,6 +25,8 @@ namespace LegalAdvice.Application.Features.Request.Queries.GetRequestDetails
 
         public async Task<RequestDetailsVm> Handle(GetRequestDetailsQuery request, CancellationToken cancellationToken)
         {
+            //TODO: Make the 2 calls to the Db one 
+
             var requestById = await _requestRepository.GetByIdAsync(request.Id);
             var requestDetailsVm = _mapper.Map<RequestDetailsVm>(requestById);
 

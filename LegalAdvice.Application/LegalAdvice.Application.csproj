@@ -14,8 +14,4 @@
     <ProjectReference Include="..\LegalAdvice.Domain\LegalAdvice.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Request\Commands\" />
-  </ItemGroup>
-
 </Project>

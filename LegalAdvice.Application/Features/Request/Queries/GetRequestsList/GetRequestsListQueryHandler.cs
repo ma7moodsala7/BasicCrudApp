@@ -18,11 +18,11 @@ namespace LegalAdvice.Application.Features.Request.Queries.GetRequestsList
     /// </summary>
     public class GetRequestsListQueryHandler : IRequestHandler<GetRequestsListQuery, List<RequestListVm>>
     {
-        private readonly IAsyncRepository<Domain.Entities.Request> _requestRepository;
+        private readonly IRequestRepository _requestRepository;
         private readonly IMapper _mapper;
 
 
-        public GetRequestsListQueryHandler(IAsyncRepository<Domain.Entities.Request> requestRepository, IMapper mapper)
+        public GetRequestsListQueryHandler(IRequestRepository requestRepository, IMapper mapper)
         {
             _requestRepository = requestRepository;
             _mapper = mapper;
