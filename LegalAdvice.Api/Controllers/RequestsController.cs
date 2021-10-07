@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LegalAdvice.Application.Features.Request.Commands.CreateRequest;
+using LegalAdvice.Application.Features.Request.Queries.GetPageRequests;
 using LegalAdvice.Application.Features.Request.Queries.GetRequestDetails;
 using LegalAdvice.Application.Features.Request.Queries.GetRequestsList;
 using MediatR;
@@ -28,6 +29,15 @@ namespace LegalAdvice.Api.Controllers
         {
             var dtos = await _mediator.Send(new GetRequestsListQuery()).ConfigureAwait(false);
             return dtos;
+        }
+
+        [HttpGet("{page}/{size}")]
+        public async Task<ActionResult<PageRequestsVm>> GetPageRequests(int page, int size)
+        {
+            var getPageRequests = new GetPageRequestsQuery() {Page = page, Size = size};
+            var dtos = await _mediator.Send(getPageRequests).ConfigureAwait(false);
+
+            return Ok(dtos);
         }
 
         // GET api/<RequestsController>/5
