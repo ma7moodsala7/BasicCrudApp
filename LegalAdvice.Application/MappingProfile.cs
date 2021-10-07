@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using LegalAdvice.Application.Features.Request.Commands.CreateRequest;
 using LegalAdvice.Application.Features.Request.Queries.GetRequestDetails;
 using LegalAdvice.Application.Features.Request.Queries.GetRequestsList;
 using LegalAdvice.Domain.Entities;
@@ -11,6 +12,7 @@ namespace LegalAdvice.Application
         {
             CreateMap<Request, RequestListVm>().ReverseMap();
             CreateMap<Request, RequestDetailsVm>().ReverseMap();
+            CreateMap<Request, CreateRequestDto>().ReverseMap();
             CreateMap<Client, ClientDto>();
         }
     }

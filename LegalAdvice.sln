@@ -11,9 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{2E6C0669-2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{610558EA-501B-4A5F-83B2-EAB895DA29E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegalAdvice.Domain", "LegalAdvice.Domain\LegalAdvice.Domain.csproj", "{6CF1408B-1BBC-4CB0-B52F-DDEDF0C41CE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LegalAdvice.Domain", "LegalAdvice.Domain\LegalAdvice.Domain.csproj", "{6CF1408B-1BBC-4CB0-B52F-DDEDF0C41CE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegalAdvice.Application", "LegalAdvice.Application\LegalAdvice.Application.csproj", "{FE58696D-07C3-4F9F-9548-32B15572C537}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LegalAdvice.Application", "LegalAdvice.Application\LegalAdvice.Application.csproj", "{FE58696D-07C3-4F9F-9548-32B15572C537}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegalAdvice.Persistence", "LegalAdvice.Persistence\LegalAdvice.Persistence.csproj", "{9C038ECA-57AF-48EA-B1A5-0760C2D3421A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{FE58696D-07C3-4F9F-9548-32B15572C537}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE58696D-07C3-4F9F-9548-32B15572C537}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE58696D-07C3-4F9F-9548-32B15572C537}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C038ECA-57AF-48EA-B1A5-0760C2D3421A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C038ECA-57AF-48EA-B1A5-0760C2D3421A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C038ECA-57AF-48EA-B1A5-0760C2D3421A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C038ECA-57AF-48EA-B1A5-0760C2D3421A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{610558EA-501B-4A5F-83B2-EAB895DA29E4} = {3744346C-956D-4D44-ADC2-0EA3E87CAB1D}
 		{6CF1408B-1BBC-4CB0-B52F-DDEDF0C41CE2} = {2E6C0669-2FC9-4D60-9331-F8B919C7E790}
 		{FE58696D-07C3-4F9F-9548-32B15572C537} = {2E6C0669-2FC9-4D60-9331-F8B919C7E790}
+		{9C038ECA-57AF-48EA-B1A5-0760C2D3421A} = {610558EA-501B-4A5F-83B2-EAB895DA29E4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0EB21038-6AF5-4C3F-A88D-64D3B3CC9791}

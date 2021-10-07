@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using LegalAdvice.Application.Contracts.Persistence;
 using MediatR;
-using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -42,9 +41,7 @@ namespace LegalAdvice.Application.Features.Request.Commands.CreateRequest
                 var newRequest = _mapper.Map<Domain.Entities.Request>(request);
                 newRequest = await _requestRepository.AddAsync(newRequest).ConfigureAwait(false);
                 response.RequestDto = _mapper.Map<CreateRequestDto>(newRequest);
-
             }
-
 
             return response;
         }
