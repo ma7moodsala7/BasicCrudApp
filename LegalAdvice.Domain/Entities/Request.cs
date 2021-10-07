@@ -12,5 +12,9 @@ namespace LegalAdvice.Domain.Entities
         public Guid ClientId { get; set; }
 
         public Client Client { get; set; }
+
+        public Guid LawyerId { get; set; }
+
+        public Lawyer Lawyer { get; set; }
     }
 }
