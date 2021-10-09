@@ -16,4 +16,13 @@
     <ProjectReference Include="..\LegalAdvice.Domain\LegalAdvice.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Client\Commands\UpdateClient\" />
+    <Folder Include="Features\Client\Queries\" />
+    <Folder Include="Features\Comment\Commands\" />
+    <Folder Include="Features\Comment\Queries\" />
+    <Folder Include="Features\Lawyer\Commands\" />
+    <Folder Include="Features\Lawyer\Queries\" />
+  </ItemGroup>
+
 </Project>

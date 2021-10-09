@@ -8,7 +8,10 @@ namespace LegalAdvice.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Request> builder)
         {
-            builder.Property(e => e.Description)
+            builder.Property(e => e.Subject)
+                .IsRequired();
+
+            builder.Property(e => e.Details)
                 .IsRequired();
         }
     }
