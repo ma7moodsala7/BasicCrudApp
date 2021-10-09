@@ -13,6 +13,8 @@ namespace LegalAdvice.Domain.Entities
 
         public string Details { get; set; }
 
+        public RequestStatus Status { get; set; }
+
         public RequestType Type { get; set; }
 
         public RequestStandard Standard { get; set; }

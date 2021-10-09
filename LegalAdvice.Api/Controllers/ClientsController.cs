@@ -20,7 +20,7 @@ namespace LegalAdvice.Api.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CreateClientCommand createClientCommand)
+        public async Task<IActionResult> RegisterClient([FromBody] CreateClientCommand createClientCommand)
         {
             var response = await _mediator.Send(createClientCommand).ConfigureAwait(false);
             return StatusCode(201, response);

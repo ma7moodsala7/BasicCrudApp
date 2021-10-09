@@ -5,6 +5,7 @@ using MediatR;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using LegalAdvice.Domain.Enums;
 
 namespace LegalAdvice.Application.Features.Request.Commands.CreateRequest
 {
@@ -40,6 +41,7 @@ namespace LegalAdvice.Application.Features.Request.Commands.CreateRequest
                 var newRequest = _mapper.Map<Domain.Entities.Request>(request);
 
                 //TODO: Update the Auditable properties
+                newRequest.Status = RequestStatus.New;
                 //newRequest.CreatedBy = 
                 newRequest = await _requestRepository.AddAsync(newRequest).ConfigureAwait(false);
                 
