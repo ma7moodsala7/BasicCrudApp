@@ -23,7 +23,7 @@ namespace LegalAdvice.Domain.Entities
 
         public Client Client { get; set; }
 
-        public Guid LawyerId { get; set; }
+        public Guid? LawyerId { get; set; }
 
         public Lawyer Lawyer { get; set; }
     }

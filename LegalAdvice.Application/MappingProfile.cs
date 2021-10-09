@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using LegalAdvice.Application.Features.Client.Commands.CreateClient;
 using LegalAdvice.Application.Features.Request.Commands.CreateRequest;
 using LegalAdvice.Application.Features.Request.Queries.GetPageRequests;
 using LegalAdvice.Application.Features.Request.Queries.GetRequestDetails;
@@ -13,11 +14,15 @@ namespace LegalAdvice.Application
         {
             CreateMap<Request, RequestListVm>().ReverseMap();
             CreateMap<Request, RequestDetailsVm>().ReverseMap();
-            CreateMap<Request, CreateRequestDto>().ReverseMap();
             CreateMap<Request, RequestsForPageDto>().ReverseMap();
+            CreateMap<Request, CreateRequestCommand>().ReverseMap();
 
 
-            CreateMap<Client, ClientDto>();
+            CreateMap<Client, ClientDto>().ReverseMap();
+            CreateMap<Client, CreateClientCommand>().ReverseMap();
+
+
+            CreateMap<Comment, CommentDto>().ReverseMap();
         }
     }
 }

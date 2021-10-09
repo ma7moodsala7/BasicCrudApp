@@ -13,6 +13,7 @@ namespace LegalAdvice.Persistence.Configurations
 
             builder.Property(e => e.Details)
                 .IsRequired();
+
         }
     }
 }

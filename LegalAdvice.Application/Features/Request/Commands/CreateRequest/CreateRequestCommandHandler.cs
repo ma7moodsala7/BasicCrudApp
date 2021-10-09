@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using LegalAdvice.Application.Contracts.Persistence;
 using MediatR;
 using System.Collections.Generic;
@@ -37,8 +38,14 @@ namespace LegalAdvice.Application.Features.Request.Commands.CreateRequest
             if (response.Success)
             {
                 var newRequest = _mapper.Map<Domain.Entities.Request>(request);
+
+                //TODO: Update the Auditable properties
+                //newRequest.CreatedBy = 
                 newRequest = await _requestRepository.AddAsync(newRequest).ConfigureAwait(false);
-                response.RequestDto = _mapper.Map<CreateRequestDto>(newRequest);
+                
+                response.RequestId = newRequest.RequestId;
+
+
             }
 
             return response;

@@ -1,4 +1,7 @@
 ﻿using System.Threading.Tasks;
+using AutoMapper;
+using LegalAdvice.Application.Features.Client.Commands.CreateClient;
+using LegalAdvice.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +16,14 @@ namespace LegalAdvice.Api.Controllers
         public ClientsController(IMediator mediator)
         {
             _mediator = mediator;
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] CreateClientCommand createClientCommand)
+        {
+            var response = await _mediator.Send(createClientCommand).ConfigureAwait(false);
+            return StatusCode(201, response);
         }
     }
 }

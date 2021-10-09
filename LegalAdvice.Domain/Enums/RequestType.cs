@@ -2,7 +2,7 @@
 {
     public enum RequestType
     {
-        Decade,        // عقد
+        Decade = 1,    // عقد
         Consultation,  // إستشارة 
         Issue          // قضية
     }

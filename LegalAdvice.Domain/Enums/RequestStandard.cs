@@ -2,7 +2,7 @@
 {
     public enum RequestStandard
     {
-        Normal,       // عادى
+        Normal = 1,   // عادى
         Urgent,       // مستعجل
         VeryUrgent    // مستعجل جدا
     }

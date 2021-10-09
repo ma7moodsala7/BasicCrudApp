@@ -6,9 +6,14 @@ namespace LegalAdvice.Application.Features.Request.Commands.CreateRequest
     {
         public CreateRequestCommandValidator()
         {
-            RuleFor(p => p.Description)
+            RuleFor(p => p.Subject)
                 .NotEmpty().WithMessage("{PropertyName} is required")
                 .NotNull();
+
+            RuleFor(p => p.Details)
+                .NotEmpty().WithMessage("{PropertyName} is required")
+                .NotNull();
+
         }
     }
 }

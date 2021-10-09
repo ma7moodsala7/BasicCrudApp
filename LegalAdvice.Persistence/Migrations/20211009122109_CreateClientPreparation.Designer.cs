@@ -3,15 +3,17 @@ using System;
 using LegalAdvice.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace LegalAdvice.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211009122109_CreateClientPreparation")]
+    partial class CreateClientPreparation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -131,7 +133,7 @@ namespace LegalAdvice.Persistence.Migrations
                     b.Property<DateTime?>("LastModifiedDate")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<Guid?>("LawyerId")
+                    b.Property<Guid>("LawyerId")
                         .HasColumnType("uuid");
 
                     b.Property<int>("Standard")
@@ -170,7 +172,9 @@ namespace LegalAdvice.Persistence.Migrations
 
                     b.HasOne("LegalAdvice.Domain.Entities.Lawyer", "Lawyer")
                         .WithMany("Requests")
-                        .HasForeignKey("LawyerId");
+                        .HasForeignKey("LawyerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Client");
 

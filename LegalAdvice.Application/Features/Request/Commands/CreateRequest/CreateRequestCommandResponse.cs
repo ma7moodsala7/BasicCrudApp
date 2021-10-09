@@ -1,9 +1,10 @@
-﻿using LegalAdvice.Application.Responses;
+﻿using System;
+using LegalAdvice.Application.Responses;
 
 namespace LegalAdvice.Application.Features.Request.Commands.CreateRequest
 {
     public class CreateRequestCommandResponse : BaseResponse
     {
-        public CreateRequestDto RequestDto { get; set; }
+        public Guid RequestId { get; set; }
     }
 }
