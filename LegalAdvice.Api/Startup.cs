@@ -1,3 +1,4 @@
+using LegalAdvice.Api.Middleware;
 using LegalAdvice.Application;
 using LegalAdvice.Persistence;
 using Microsoft.AspNetCore.Builder;
@@ -46,12 +47,16 @@ namespace LegalAdvice.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LegalAdvice.Api v1"));
             }
 
             app.UseHttpsRedirection();
             app.UseRouting();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LegalAdvice.Api v1"));
+
+            app.UseCustomExceptionHandler();
+
             app.UseCors("AllowAllPolicy");
 
             app.UseAuthorization();

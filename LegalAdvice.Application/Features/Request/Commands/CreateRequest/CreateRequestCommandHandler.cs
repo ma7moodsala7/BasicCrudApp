@@ -10,14 +10,12 @@ namespace LegalAdvice.Application.Features.Request.Commands.CreateRequest
     public class CreateRequestCommandHandler : IRequestHandler<CreateRequestCommand, CreateRequestCommandResponse>
     {
         private readonly IRequestRepository _requestRepository;
-        private readonly IClientRepository _clientRepository;
         private readonly IMapper _mapper;
 
 
-        public CreateRequestCommandHandler(IRequestRepository requestRepository, IClientRepository clientRepository, IMapper mapper)
+        public CreateRequestCommandHandler(IRequestRepository requestRepository, IMapper mapper)
         {
             _requestRepository = requestRepository;
-            _clientRepository = clientRepository;
             _mapper = mapper;
         }
 

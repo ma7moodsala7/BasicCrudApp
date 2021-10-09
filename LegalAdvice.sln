@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LegalAdvice.Application", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LegalAdvice.Persistence", "LegalAdvice.Persistence\LegalAdvice.Persistence.csproj", "{9C038ECA-57AF-48EA-B1A5-0760C2D3421A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegalAdvice.Api", "LegalAdvice.Api\LegalAdvice.Api.csproj", "{7F6C8D66-3EFA-4F4E-9DCD-1126C2D8E835}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LegalAdvice.Api", "LegalAdvice.Api\LegalAdvice.Api.csproj", "{7F6C8D66-3EFA-4F4E-9DCD-1126C2D8E835}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegalAdvice.Identity", "LegalAdvice.Identity\LegalAdvice.Identity.csproj", "{217E5A3E-0F65-49DD-9657-F3AEA86E16D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{7F6C8D66-3EFA-4F4E-9DCD-1126C2D8E835}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F6C8D66-3EFA-4F4E-9DCD-1126C2D8E835}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F6C8D66-3EFA-4F4E-9DCD-1126C2D8E835}.Release|Any CPU.Build.0 = Release|Any CPU
+		{217E5A3E-0F65-49DD-9657-F3AEA86E16D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{217E5A3E-0F65-49DD-9657-F3AEA86E16D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{217E5A3E-0F65-49DD-9657-F3AEA86E16D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{217E5A3E-0F65-49DD-9657-F3AEA86E16D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{FE58696D-07C3-4F9F-9548-32B15572C537} = {2E6C0669-2FC9-4D60-9331-F8B919C7E790}
 		{9C038ECA-57AF-48EA-B1A5-0760C2D3421A} = {610558EA-501B-4A5F-83B2-EAB895DA29E4}
 		{7F6C8D66-3EFA-4F4E-9DCD-1126C2D8E835} = {44F7D858-C3D9-4A04-81E2-3C136592B753}
+		{217E5A3E-0F65-49DD-9657-F3AEA86E16D5} = {610558EA-501B-4A5F-83B2-EAB895DA29E4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0EB21038-6AF5-4C3F-A88D-64D3B3CC9791}
