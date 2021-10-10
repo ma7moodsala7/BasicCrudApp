@@ -3,7 +3,7 @@ using LegalAdvice.Domain.Enums;
 
 namespace LegalAdvice.Application.Features.Request.Queries.GetRequestsList
 {
-    public class RequestListVm
+    public class RequestListDto
     {
         public Guid RequestId { get; set; }
 
@@ -17,8 +17,13 @@ namespace LegalAdvice.Application.Features.Request.Queries.GetRequestsList
 
         public RequestStandard Standard { get; set; }
 
-        public RequestClientDto Client { get; set; }
+        public RequestListClientDto Client { get; set; }
 
-        public RequestLawyerDto Lawyer { get; set; }
+        public RequestListLawyerDto Lawyer { get; set; }
+
+        public string CreatedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string LastModifiedBy { get; set; }
+        public DateTime? LastModifiedDate { get; set; }
     }
 }

@@ -19,10 +19,10 @@ namespace LegalAdvice.Application.Features.Request.Queries.GetRequestDetails
 
         public RequestStandard Standard { get; set; }
 
-        public ClientDto Client { get; set; }
+        public RequestClientDto Client { get; set; }
 
-        public LawyerDto Lawyer { get; set; }
+        public RequestLawyerDto Lawyer { get; set; }
 
-        public List<CommentDetailsDto> Comments { get; set; }
+        public List<RequestCommentDto> Comments { get; set; }
     }
 }

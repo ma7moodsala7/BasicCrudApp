@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LegalAdvice.Application.Features.Request.Queries.GetRequestWithComments
+namespace LegalAdvice.Application.Features.Request.Queries.GetRequestDetails
 {
     public class RequestCommentDto
     {

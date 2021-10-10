@@ -1,13 +1,13 @@
 ﻿using System;
 
-namespace LegalAdvice.Application.Features.Request.Queries.GetRequestDetails
+namespace LegalAdvice.Application.Features.Request.Queries.GetRequestsList
 {
-    public class ClientDto
+    public class RequestListClientDto
     {
         public Guid ClientId { get; set; }
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        public int Age { get; set; }
     }
 }

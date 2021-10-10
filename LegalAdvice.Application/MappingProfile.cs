@@ -2,10 +2,8 @@
 using LegalAdvice.Application.Features.Client.Commands.CreateClient;
 using LegalAdvice.Application.Features.Lawyer.Commands.CreateLawyer;
 using LegalAdvice.Application.Features.Request.Commands.CreateRequest;
-using LegalAdvice.Application.Features.Request.Queries.GetPageRequests;
 using LegalAdvice.Application.Features.Request.Queries.GetRequestDetails;
 using LegalAdvice.Application.Features.Request.Queries.GetRequestsList;
-using LegalAdvice.Application.Features.Request.Queries.GetRequestWithComments;
 using LegalAdvice.Domain.Entities;
 
 namespace LegalAdvice.Application
@@ -14,26 +12,26 @@ namespace LegalAdvice.Application
     {
         public MappingProfile()
         {
-            CreateMap<Request, RequestListVm>().ReverseMap();
             CreateMap<Request, RequestDetailsVm>().ReverseMap();
-            CreateMap<Request, RequestsForPageDto>().ReverseMap();
-            CreateMap<Request, RequestWithCommentsVm>().ReverseMap();
+            CreateMap<Request, RequestListDto>().ReverseMap();
             CreateMap<Request, CreateRequestCommand>().ReverseMap();
             
-            CreateMap<RequestClientDto, Client>().ReverseMap();
-            CreateMap<RequestLawyerDto, Lawyer>().ReverseMap();
+            CreateMap<RequestListClientDto, Client>().ReverseMap();
+            CreateMap<RequestListLawyerDto, Lawyer>().ReverseMap();
+            CreateMap<RequestCommentDto, Comment>().ReverseMap();
 
 
-            CreateMap<Client, ClientDto>().ReverseMap();
+
+
+
+            CreateMap<Client, RequestClientDto>().ReverseMap();
             CreateMap<Client, CreateClientCommand>().ReverseMap();
 
 
-            CreateMap<Comment, CommentDetailsDto>().ReverseMap();
-            CreateMap<Comment, RequestCommentDto>().ReverseMap();
 
 
 
-            CreateMap<Lawyer, LawyerDto>().ReverseMap();
+            CreateMap<Lawyer, RequestLawyerDto>().ReverseMap();
             CreateMap<Lawyer, CreateLawyerCommand>().ReverseMap();
 
 

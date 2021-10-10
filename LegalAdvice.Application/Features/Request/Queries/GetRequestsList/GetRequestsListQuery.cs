@@ -8,7 +8,10 @@ namespace LegalAdvice.Application.Features.Request.Queries.GetRequestsList
 
     // this is inter-object communication, so that will be a message.
 
-    public class GetRequestsListQuery : IRequest<List<RequestListVm>>
+    public class GetRequestsListQuery : IRequest<RequestsListVm>
     {
+        public int? Page { get; set; }
+        public int? Size { get; set; }
     }
+
 }

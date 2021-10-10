@@ -19,7 +19,7 @@
   <ItemGroup>
     <Folder Include="Features\Client\Commands\UpdateClient\" />
     <Folder Include="Features\Client\Queries\" />
-    <Folder Include="Features\Comment\Commands\AddComment\" />
+    <Folder Include="Features\Comment\Commands\CreateComment\" />
     <Folder Include="Features\Comment\Commands\DeleteComment\" />
     <Folder Include="Features\Comment\Commands\UpdateComment\" />
     <Folder Include="Features\Comment\Queries\" />

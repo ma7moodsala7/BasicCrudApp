@@ -15,7 +15,7 @@ namespace LegalAdvice.Application.Features.Request.Queries.GetRequestsList
     /// Handle GetEventsListQuery message
     /// returning the list of EventListVMs
     /// </summary>
-    public class GetRequestsListQueryHandler : IRequestHandler<GetRequestsListQuery, List<RequestListVm>>
+    public class GetRequestsListQueryHandler : IRequestHandler<GetRequestsListQuery, RequestsListVm>
     {
         private readonly IRequestRepository _requestRepository;
         private readonly IMapper _mapper;
@@ -29,12 +29,19 @@ namespace LegalAdvice.Application.Features.Request.Queries.GetRequestsList
 
 
         // when the message "GetEventsListQuery" is received, this method will be called
-        public async Task<List<RequestListVm>> Handle(GetRequestsListQuery request, CancellationToken cancellationToken)
+        public async Task<RequestsListVm> Handle(GetRequestsListQuery request, CancellationToken cancellationToken)
         {
+            var requestsList = await _requestRepository.GetRequestsListAsync(request.Page, request.Size).ConfigureAwait(false);
 
-            var allRequests = await _requestRepository.GetRequestsListAsync().ConfigureAwait(false);
-            //var allRequests = (await _requestRepository.ListAllAsync().ConfigureAwait(false)).OrderBy(x => x.CreatedDate);
-            return _mapper.Map<List<RequestListVm>>(allRequests);
+            RequestsListVm requestsListVm = new RequestsListVm()
+            {
+                Page = request.Page,
+                Size = request.Size,
+                Count = requestsList.Count,
+                RequestsDtos = _mapper.Map<List<RequestListDto>>(requestsList)
+            };
+
+            return requestsListVm;
         }
     }
 }
