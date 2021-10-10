@@ -1,5 +1,4 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using LegalAdvice.Application.Contracts.Persistence;
 using MediatR;
 using System.Collections.Generic;
@@ -40,9 +39,11 @@ namespace LegalAdvice.Application.Features.Request.Commands.CreateRequest
             {
                 var newRequest = _mapper.Map<Domain.Entities.Request>(request);
 
-                //TODO: Update the Auditable properties
                 newRequest.Status = RequestStatus.New;
+
+                //TODO: Update the Auditable properties after adding authentication
                 //newRequest.CreatedBy = 
+                
                 newRequest = await _requestRepository.AddAsync(newRequest).ConfigureAwait(false);
                 
                 response.RequestId = newRequest.RequestId;

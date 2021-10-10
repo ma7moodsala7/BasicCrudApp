@@ -1,11 +1,10 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using LegalAdvice.Domain.Enums;
 
-namespace LegalAdvice.Application.Features.Request.Queries.GetRequestsList
+namespace LegalAdvice.Application.Features.Request.Queries.GetRequestWithComments
 {
-    public class RequestListVm
+    public class RequestWithCommentsVm
     {
-        public Guid RequestId { get; set; }
 
         public string Subject { get; set; }
 
@@ -17,8 +16,6 @@ namespace LegalAdvice.Application.Features.Request.Queries.GetRequestsList
 
         public RequestStandard Standard { get; set; }
 
-        public RequestClientDto Client { get; set; }
-
-        public RequestLawyerDto Lawyer { get; set; }
+        public List<RequestCommentDto> Comments { get; set; }
     }
 }

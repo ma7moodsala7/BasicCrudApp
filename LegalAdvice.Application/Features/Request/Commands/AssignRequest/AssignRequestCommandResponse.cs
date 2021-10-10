@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LegalAdvice.Application.Features.Request.Commands.UpdateRequest
+namespace LegalAdvice.Application.Features.Request.Commands.AssignRequest
 {
-    class UpdateRequestCommandValidator
+    class AssignRequestCommandResponse
     {
     }
 }

@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using AutoMapper;
 using LegalAdvice.Application.Contracts.Persistence;
 using LegalAdvice.Domain.Entities;
 using MediatR;
@@ -10,29 +11,24 @@ namespace LegalAdvice.Application.Features.Request.Queries.GetRequestDetails
     public class GetRequestDetailsQueryHandler : IRequestHandler<GetRequestDetailsQuery, RequestDetailsVm>
     {
         private readonly IRequestRepository _requestRepository;
-        private readonly IClientRepository _ClientRepository;
         private readonly IMapper _mapper;
 
-        public GetRequestDetailsQueryHandler(
-            IMapper mapper,
-            IRequestRepository requestRepository,
-            IClientRepository clientRepository)
+        public GetRequestDetailsQueryHandler(IMapper mapper,IRequestRepository requestRepository)
         {
             _mapper = mapper;
             _requestRepository = requestRepository;
-            _ClientRepository = clientRepository;
         }
 
         public async Task<RequestDetailsVm> Handle(GetRequestDetailsQuery request, CancellationToken cancellationToken)
         {
-            //TODO: Make the 2 calls to the Db one 
+            //var requestById = await _requestRepository.GetByIdAsync(request.Id).ConfigureAwait(false);
+            Domain.Entities.Request requestDetails = await _requestRepository.GetRequestDetailsAsync(request.Id).ConfigureAwait(false);
 
-            var requestById = await _requestRepository.GetByIdAsync(request.Id);
-            var requestDetailsVm = _mapper.Map<RequestDetailsVm>(requestById);
+            var requestDetailsVm = _mapper.Map<RequestDetailsVm>(requestDetails);
 
-            var client = await _ClientRepository.GetByIdAsync(requestById.ClientId);
-
-            requestDetailsVm.Client = _mapper.Map<ClientDto>(client);
+            requestDetailsVm.Client = _mapper.Map<ClientDto>(requestDetails.Client);
+            requestDetailsVm.Lawyer = _mapper.Map<LawyerDto>(requestDetails.Lawyer);
+            requestDetailsVm.Comments = _mapper.Map<List<CommentDetailsDto>>(requestDetails.Comments);
 
             return requestDetailsVm;
         }

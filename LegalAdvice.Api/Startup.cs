@@ -26,9 +26,10 @@ namespace LegalAdvice.Api
             services.AddPersistenceServices(Configuration);
 
             services.AddControllers();
-            services.AddSwaggerGen(c =>
+            services.AddSwaggerGen(options =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "LegalAdvice.Api", Version = "v1" });
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "LegalAdvice.Api", Version = "v1" });
+                //options.CustomSchemaIds(type => type.ToString());
             });
 
             services.AddCors(options =>

@@ -1,8 +1,7 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using AutoMapper;
 using LegalAdvice.Application.Contracts.Persistence;
 using MediatR;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -32,7 +31,9 @@ namespace LegalAdvice.Application.Features.Request.Queries.GetRequestsList
         // when the message "GetEventsListQuery" is received, this method will be called
         public async Task<List<RequestListVm>> Handle(GetRequestsListQuery request, CancellationToken cancellationToken)
         {
-            var allRequests = (await _requestRepository.ListAllAsync()).OrderBy(x => x.LastModifiedDate);
+
+            var allRequests = await _requestRepository.GetRequestsListAsync().ConfigureAwait(false);
+            //var allRequests = (await _requestRepository.ListAllAsync().ConfigureAwait(false)).OrderBy(x => x.CreatedDate);
             return _mapper.Map<List<RequestListVm>>(allRequests);
         }
     }

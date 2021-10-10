@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LegalAdvice.Application.Contracts.Persistence;
@@ -22,6 +23,22 @@ namespace LegalAdvice.Persistence.Repositories
         public Task<int> GetTotalCountForRequestsAsync()
         {
             return DbContext.Requests.CountAsync();
+        }
+
+        public Task<Request> GetRequestDetailsAsync(Guid id)
+        {
+            return DbContext.Requests
+                    .Include(r => r.Comments)
+                    .Include(r => r.Client)
+                    .Include(r => r.Lawyer)
+                    .FirstOrDefaultAsync(r => r.RequestId == id);
+        }
+
+        public async Task<Request> GetRequestWithCommentsAsync(Guid id)
+        {
+            return await DbContext.Requests
+                .Include(r => r.Comments)
+                .FirstOrDefaultAsync(r => r.RequestId == id);
         }
     }
 }
